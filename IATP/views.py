@@ -19,3 +19,10 @@ def login(request):
             return HttpResponse(json.dumps({"status": 1, "msg": "登录失败，用户名或密码错误"}),
                                 content_type="application/json")
     return render(request, "login.html")
+
+
+def home(request):
+    if "user" not in request.session:
+        return render(request, "login.html")
+
+    return render(request, "home.html")

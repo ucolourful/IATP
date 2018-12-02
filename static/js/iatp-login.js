@@ -25,7 +25,7 @@ layui.use(['layer','jquery'], function () {
         }).done(function(res){
             layer.msg(res.msg);
             if ( res.status === 0 ){
-                setTimeout("window.location.href='/index'",2000)
+                setTimeout("window.location.href='/home/'",2000)
             } else {
                 $("#at-form-item-submit").removeAttr("disabled");
                 $("#at-form-item-submit").css("background-color", "#009688");
