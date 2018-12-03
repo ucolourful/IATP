@@ -6,6 +6,58 @@
     <link href="../static/css/iatp.css" rel="stylesheet"/>
 </head>
 <body>
-{{ request.session.user }}
+<!-- 顶部导航栏 -->
+<div class="at-header">
+    <div class="at-header-logo">
+        <a href="#">IATP测试平台</a>
+    </div>
+    <div class="at-header-menu-end">
+        <a href="#">帮助</a>
+    </div>
+    <div class="at-header-menu" id="header-menu-user">
+        <a href="#">{{ usersetting.username }}</a>
+        <label for="userDftCaseId"><input type="text" value="{{ userOpt.dftCaseId }}" id="userDftCaseId" hidden></label>
+        <span class="at-header-menu-icon"></span>
+        <ul class="at-header-menu-more">
+            <li class="at-header-menu-more-select"><a href="#">用户设置</a></li>
+            <li class="at-header-menu-more-select"><a href="logout/">退出登录</a></li>
+        </ul>
+    </div>
+    <div class="at-header-menu" id="header-menu-tmode">
+        <a href="#">版本：{{ usersetting.version_name }}</a>
+        <span class="at-header-menu-icon"></span>
+        <ul class="at-header-menu-more">
+            {% for tmode in tmodeList %}
+                {% if usersetting.version_id == tmode.id %}
+                    <li class="at-header-menu-more-selected" data-value="{{ tmode.id }}"
+                        value="{{ tmode.tmodeName }}"><a href="">{{ tmode.tmodeName }}</a>
+                    </li>
+                {% else %}
+                    <li class="at-header-menu-more-select" data-value="{{ tmode.id }}"
+                        value="{{ tmode.tmodeName }}"><a href="">{{ tmode.tmodeName }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="at-header-menu" id="header-menu-version">
+        <a href="#">产品线：{{ usersetting.product_name }}</a>
+        <span class="at-header-menu-icon"></span>
+        <ul class="at-header-menu-more">
+            {% for version in versinList %}
+                {% if usersetting.product_id == version.id %}
+                    <li class="at-header-menu-more-selected" data-value="{{ version.id }}"
+                        value="{{ version.versionName }}">
+                        <a href="">{{ version.versionName }}</a>
+                    </li>
+                {% else %}
+                    <li class="at-header-menu-more-select" data-value="{{ version.id }}"
+                        value="{{ version.versionName }}">
+                        <a href="">{{ version.versionName }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 </body>
 </html>

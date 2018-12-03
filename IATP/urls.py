@@ -17,9 +17,23 @@ from django.contrib import admin
 from django.urls import path
 
 from IATP import views
+from apitest import apiviews
+from product import productviews
+from version import versionviews
 
 urlpatterns = [
+    # 默认页、后台页、登陆页、首页
+    path('', views.login),
     path('admin/', admin.site.urls),
     path('login/', views.login),
     path('home/', views.home),
+
+    # 产品线&版本管理
+    path('product_manage/', productviews.product_manage),
+    path('version_manage/', versionviews.version_manage),
+
+    # api接口测试用例管理
+    path('apitest_manage/', apiviews.apitest_manage),
+    path('apistep_manage/', apiviews.apistep_manage),
+    path('apis_manage/', apiviews.apis_manage),
 ]
