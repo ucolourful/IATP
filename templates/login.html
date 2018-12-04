@@ -14,49 +14,45 @@
 
     <!-- CSS -->
     <link href="../static/css/iatp.css" rel="stylesheet"/>
+    <link href="../static/css/iatp-header.css" rel="stylesheet"/>
+    <link href="../static/css/iatp-login.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <!-- 导航栏 -->
-<div class="at-header">
-    <div class="at-header-logo">
-        <a href="#">IATP测试平台</a>
-    </div>
-    <div class="at-header-menu-end">
-        <a href="#">注册</a>
-    </div>
-    <div class="at-header-menu-end at-header-menu-selected">
-        <a href="#">登录</a>
-    </div>
+<div class="iatp-header">
+    <div class="iatp-header-logo">IATP测试平台</div>
+    <div class="iatp-header-btn">注册</div>
+    <div class="iatp-header-btn iatp-header-btn-selected">登录</div>
+
 </div>
 
 <!-- 主体部分 -->
-<div class="at-main">
+<div class="iatp-main">
     <!-- 登录表单 -->
-    <div class="at-login-form">
-        <div class="at-login-form-item">
-            <div class="at-login-form-item-left">
-                <lable class="at-form-item-lable">用户名</lable>
+    <div class="iatp-login">
+        <div class="iatp-login-item">
+            <div class="iatp-login-item-left">
+                <span class="iatp-login-item-lable">用户名</span>
             </div>
-            <div class="at-login-form-item-right">
-                <input class="at-form-item-input" type="text" id="username" autofocus placeholder="请输入用户名"/>
-            </div>
-        </div>
-        <div class="at-login-form-item">
-            <div class="at-login-form-item-left">
-                <lable class="at-form-item-lable">密　码</lable>
-            </div>
-            <div class="at-login-form-item-right">
-                <input class="at-form-item-input" type="password" id="password" placeholder="请输入密码"/>
+            <div class="iatp-login-item-right">
+                <input class="iatp-login-item-input" type="text" id="username" autofocus placeholder="请输入用户名"/>
             </div>
         </div>
-        <div class="at-login-form-item">
-            <div class="at-login-form-item-left">
+        <div class="iatp-login-item">
+            <div class="iatp-login-item-left">
+                <span class="iatp-login-item-lable">密　码</span>
             </div>
-            <div class="at-login-form-item-right">
-                <button class="at-form-item-submit" id="at-form-item-submit">登录</button>
-                <button class="at-form-item-reset" id="at-form-item-reset">重置</button>
+            <div class="iatp-login-item-right">
+                <input class="iatp-login-item-input" type="password" id="password" placeholder="请输入密码"/>
+            </div>
+        </div>
+        <div class="iatp-login-item">
+            <div class="iatp-login-item-left"></div>
+            <div class="iatp-login-item-right">
+                <button class="iatp-login-item-submit" id="login-submit">登录</button>
+                <button class="iatp-login-item-reset" id="login-reset">重置</button>
             </div>
         </div>
     </div>

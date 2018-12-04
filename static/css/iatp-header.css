@@ -1,0 +1,36 @@
+/* header部分 */
+.iatp-header-logo {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: auto;
+    display: block;
+    text-decoration: none;
+    color: #009688;
+    text-align: center;
+    line-height: 57px;
+    padding-right: 5px;
+    font-size: 22px;
+}
+
+.iatp-header-btn {
+    position: relative;
+    float: right;
+    padding: 0 10px 0 10px;
+    height: 100%;
+    width: auto;
+    line-height: 57px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .7);
+    transition: all .3s;
+}
+
+.iatp-header-btn-selected {
+    color: white;
+    border-bottom: 3px solid yellow;
+}
+
+.iatp-header-btn:hover {
+    color: white;
+    border-bottom: 3px solid yellow !important;
+}

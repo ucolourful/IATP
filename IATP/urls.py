@@ -22,11 +22,12 @@ from product import productviews
 from version import versionviews
 
 urlpatterns = [
-    # 默认页、后台页、登陆页、首页
+    # 默认页、后台页、登陆页、首页、注销登录
     path('', views.login),
     path('admin/', admin.site.urls),
     path('login/', views.login),
     path('home/', views.home),
+    path('logout/', views.logout),
 
     # 产品线&版本管理
     path('product_manage/', productviews.product_manage),
