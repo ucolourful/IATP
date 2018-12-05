@@ -1,7 +1,4 @@
-import json
-
 from django.contrib import auth
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 from usersetting.models import UserSetting
@@ -27,12 +24,10 @@ def login(request):
         if user is not None and user.is_active:
             auth.login(request, user)
             request.session['user'] = username
-            return HttpResponse(json.dumps({"status": 0, "msg": "登录成功，即将跳转到首页..."}),
-                                content_type="application/json")
+            return redirect('/home/')
 
         # 用户验证失败 -> 返回Json，登录失败
-        return HttpResponse(json.dumps({"status": 1, "msg": "登录失败，用户名或密码错误"}),
-                            content_type="application/json")
+        return render(request, "login.html", {'error': "用户名或密码错误"})
 
 
 # 主页
