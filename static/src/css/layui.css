@@ -949,7 +949,7 @@ body .layui-table-tips .layui-layer-content{background: none; padding: 0; box-sh
 .layui-nav-bar{z-index: 1000;}
 .layui-nav .layui-this a
 ,.layui-nav .layui-nav-item a:hover{color: #fff;}
-.layui-nav .layui-this:after{content: ''; top: auto; bottom: 0; width: 100%;}
+/*.layui-nav .layui-this:after{content: ''; top: auto; bottom: 0; width: 100%;}*/
 .layui-nav-img{width: 30px; height: 30px; margin-right: 10px; border-radius: 50%;}
 
 .layui-nav .layui-nav-more{content:''; width: 0; height: 0; border-style: dashed; border-color: transparent; overflow: hidden; cursor: pointer; transition: all .2s; -webkit-transition: all .2s;}

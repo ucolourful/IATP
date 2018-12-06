@@ -11,7 +11,7 @@
 }
 
 .layui-main-center .layui-form-item {
-    padding: 20px 0 0 50%;
+    padding: 20px 0 0 45%;
 }
 
 .layui-main-center .layui-input-block {
@@ -26,4 +26,8 @@
     color: inherit;
     display: block;
     font-size: 22px;
+}
+
+.layui-nav-item-iatp  {
+    position: relative; display: inline-block; *display: inline; *zoom: 1; vertical-align: middle; line-height: 60px;
 }
