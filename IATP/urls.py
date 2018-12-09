@@ -32,6 +32,7 @@ urlpatterns = [
     # 产品线&版本管理
     path('product_manage/', productviews.product_manage),
     path('version_manage/', versionviews.version_manage),
+    path('products/', productviews.get_products),
 
     # api接口测试用例管理
     path('apitest_manage/', apiviews.apitest_manage),
