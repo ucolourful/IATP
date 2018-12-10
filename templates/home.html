@@ -15,35 +15,21 @@
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item-iatp" style="color: #000;">
                     <label style="margin-right:10px;color: rgba(255,255,255,.7);">产品线</label>
-                    <div class="layui-input-inline">
+                    <div class="layui-input-inline" id="product">
                         <select name="product-search" lay-filter="product-search" lay-search></select>
                     </div>
                 </li>
                 <li class="layui-nav-item-iatp" style="color: #000; margin-left: 30px;">
                     <label style="margin-right:10px;color: rgba(255,255,255,.7);">版本</label>
-                    <div class="layui-input-inline">
-                        <select name="version-search" lay-filter="version-search" lay-search>
-                            <option value="">请搜索</option>
-                            <option value="写作">写作</option>
-                            <option value="阅读" disabled>阅读</option>
-                            <option value="音乐">音乐</option>
-                            <option value="旅行">旅行</option>
-                            <option value="读书">读书</option>
-                            <option value="1">layer</option>
-                            <option value="3">3</option>
-                            <option value="4">layim</option>
-                            <option value="5">laypage</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
+                    <div class="layui-input-inline" id="version">
+                        <select name="version-search" lay-filter="version-search" lay-search></select>
                     </div>
                 </li>
             </ul>
         </form>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href="javascript:"> {{ usersetting.username }} </a>
+                <a href="javascript:">{{ request.session.user }}</a>
                 <dl class="layui-nav-child" id="user-menu">
                     <dd id="user-info"><a href="javascript:">基本资料</a></dd>
                     <dd id="user-set"><a href="javascript:">个人设置</a></dd>
@@ -56,7 +42,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree" id="side-list">
+            <ul class="layui-nav layui-nav-tree" id="testmode-list">
                 <li class="layui-nav-item layui-this" data-value="api"><a href="javascript:">Api 接口测试</a></li>
                 <li class="layui-nav-item" data-value="webui"><a href="javascript:">WebUI 测试</a></li>
                 <li class="layui-nav-item" data-value="device"><a href="javascript:">设备测试</a></li>

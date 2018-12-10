@@ -8,12 +8,12 @@ from product.models import Product
 
 
 def get_products(request):
-    products = []
     # 未登录用户
     if "user" not in request.session:
-        return HttpResponse(json.dumps({"status": 1, "msg": products}))
+        return HttpResponse(json.dumps({"status": 1, "msg": "login first"}), content_type="application/json")
 
     # 已登录
+    products = []
     for product in Product.objects.all():
         products.append(model_to_dict(product))
     return HttpResponse(json.dumps({"status": 0, "msg": products}), content_type="application/json")

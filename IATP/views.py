@@ -1,8 +1,6 @@
 from django.contrib import auth
 from django.shortcuts import render, redirect
 
-from usersetting.models import UserSetting
-
 
 # 登录页
 def login(request):
@@ -35,19 +33,7 @@ def home(request):
     # 未登录，重定向到登录页
     if "user" not in request.session:
         return redirect('/login/')
-
-    # 查询用户配置。若查询条目大于1，删除所有条目，新增一条
-    username = request.session["user"]
-    if len(UserSetting.objects.filter(username=username)) != 1:
-        for u in UserSetting.objects.filter(username=username):
-            u.delete()
-        usersetting = UserSetting(username=username, product_id=0, product_name="请选择", version_id=0, version_name="请选择")
-        usersetting.save()
-
-    # 查询用户配置。查询条目只有一条，返回这条数据
-    else:
-        usersetting = UserSetting.objects.get(username=username)
-    return render(request, "home.html", {"usersetting": usersetting})
+    return render(request, "home.html")
 
 
 # 注销

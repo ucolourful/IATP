@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'version',
     'usersetting',
     'apitest',
+    'testmode',
+    'versiontestmode',
 ]
 
 MIDDLEWARE = [

@@ -19,7 +19,9 @@ from django.urls import path
 from IATP import views
 from apitest import apiviews
 from product import productviews
+from usersetting import userviews
 from version import versionviews
+from versiontestmode import versiontestmodeviews
 
 urlpatterns = [
     # 默认页、后台页、登陆页、首页、注销登录
@@ -29,10 +31,17 @@ urlpatterns = [
     path('home/', views.home),
     path('logout/', views.logout),
 
+    # 用户设置接口列表
+    path('userset/', userviews.userset),
+
     # 产品线&版本管理
     path('product_manage/', productviews.product_manage),
     path('version_manage/', versionviews.version_manage),
     path('products/', productviews.get_products),
+    path('versions/', versionviews.get_versions),
+
+    # 版本设置接口
+    path('versiontestmodes/', versiontestmodeviews.get_versiontestmodes),
 
     # api接口测试用例管理
     path('apitest_manage/', apiviews.apitest_manage),
