@@ -1,6 +1,7 @@
 //IATP 首页 JS
 layui.use(['element', 'form', 'jquery', 'layer'], function () {
     let $ = layui.jquery;
+    let element = layui.element;
     let layer = layui.layer;
     let form = layui.form;
     updateSelections();
@@ -16,7 +17,7 @@ layui.use(['element', 'form', 'jquery', 'layer'], function () {
     });
 
     // 侧边导航栏监听
-    $("#side-list li").on("click", function () {
+    $("#testmode-list li").on("click", function () {
         layer.msg($(this).attr("data-value"));
         $("#body-content").html($(this).attr("data-value"));
     });
@@ -116,6 +117,17 @@ layui.use(['element', 'form', 'jquery', 'layer'], function () {
             data: {"version_id": usersetting.version_id}
         }).done(function (res) {
             console.log(res.msg);
+            let versiontestmodes = res.msg;
+            let liString = "";
+            for (var i = 0; i < versiontestmodes.length; i++) {
+                if (usersetting.testmode_id === versiontestmodes[i].id){
+                    liString += "<li class=\'layui-nav-item layui-this\' data-value=\'"+versiontestmodes[i].id+"\'><a href=\'javascript:\'>"+versiontestmodes[i].versiontmname+"</a></li>"
+                }else{
+                    liString += "<li class=\'layui-nav-item\' data-value=\'"+versiontestmodes[i].id+"\'><a href=\'javascript:\'>"+versiontestmodes[i].versiontmname+"</a></li>"
+                }
+            }
+            $("#testmode-list").append(liString);
+            element.render();
         })
     }
 });
