@@ -28,5 +28,7 @@ def userset(request):
         usersetting.product_id = request.POST["product_id"]
     elif "version_id" in request.POST:
         usersetting.version_id = request.POST["version_id"]
+    elif "testmode_id" in request.POST:
+        usersetting.testmode_id = request.POST["testmode_id"]
     usersetting.save()
     return HttpResponse(json.dumps({"status": 0, "msg": model_to_dict(usersetting)}), content_type="application/json")

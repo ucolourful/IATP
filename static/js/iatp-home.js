@@ -17,9 +17,17 @@ layui.use(['element', 'form', 'jquery', 'layer'], function () {
     });
 
     // 侧边导航栏监听
-    $("#testmode-list li").on("click", function () {
+    $(document).on("click", "#testmode-list li", function () {
         layer.msg($(this).attr("data-value"));
-        $("#body-content").html($(this).attr("data-value"));
+        $.ajax({
+            type: "POST",
+            url: "/userset/",
+            data: {"testmode_id": $(this).attr("data-value")},
+        }).done(function (res) {
+            if (res.status === 0) {
+                console.log("testmode save success")
+            }
+        })
     });
 
     // 监听选择下拉框
@@ -116,14 +124,13 @@ layui.use(['element', 'form', 'jquery', 'layer'], function () {
             url: "/versiontestmodes/",
             data: {"version_id": usersetting.version_id}
         }).done(function (res) {
-            console.log(res.msg);
             let versiontestmodes = res.msg;
             let liString = "";
             for (var i = 0; i < versiontestmodes.length; i++) {
-                if (usersetting.testmode_id === versiontestmodes[i].id){
-                    liString += "<li class=\'layui-nav-item layui-this\' data-value=\'"+versiontestmodes[i].id+"\'><a href=\'javascript:\'>"+versiontestmodes[i].versiontmname+"</a></li>"
-                }else{
-                    liString += "<li class=\'layui-nav-item\' data-value=\'"+versiontestmodes[i].id+"\'><a href=\'javascript:\'>"+versiontestmodes[i].versiontmname+"</a></li>"
+                if (usersetting.testmode_id === versiontestmodes[i].id) {
+                    liString += "<li class=\'layui-nav-item layui-this\' data-value=\'" + versiontestmodes[i].id + "\'><a href=\'javascript:\'>" + versiontestmodes[i].versiontmname + "</a></li>"
+                } else {
+                    liString += "<li class=\'layui-nav-item\' data-value=\'" + versiontestmodes[i].id + "\'><a href=\'javascript:\'>" + versiontestmodes[i].versiontmname + "</a></li>"
                 }
             }
             $("#testmode-list").append(liString);

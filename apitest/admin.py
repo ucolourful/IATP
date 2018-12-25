@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apitest.models import Apistep, Apitest, Apis
+from apitest.models import Apistep
 
 
 class ApiStepAdmin(admin.TabularInline):
@@ -19,6 +19,5 @@ class ApitestAdmin(admin.ModelAdmin):
     list_display = ['apitestname', 'apitester', 'apitestresult', 'create_time', 'id']
     inlines = [ApiStepAdmin]
 
-
-admin.site.register(Apis)
-admin.site.register(Apitest, ApitestAdmin)
+# admin.site.register(Apis)
+# admin.site.register(Apitest, ApitestAdmin)
